@@ -57,6 +57,11 @@ These version should support the Docker CE version.**
 sudo apt-get install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs) kubelet=1.21.1-00 kubeadm=1.21.1-00 kubectl=1.21.1-00
 ```
 
+> If you encounter an error (E: dpkg was interrupted, ...) at this stage run the following command to correct the problem and then run the above command again.
+
+```bash
+sudo dpkg --configure -a
+```
 
 > To hold the versions so that the versions will not get accidently upgraded.
 
