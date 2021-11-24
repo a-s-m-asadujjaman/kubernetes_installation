@@ -79,6 +79,8 @@ echo "net.bridge.bridge-nf-call-iptables=1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
+> If you encounter an error (sysctl: cannot stat /proc/sys/ ...) at this stage, reboot to correct the problem, run the above command again and then continue with the next steps.
+
 > Disable swap
 
 ```bash
