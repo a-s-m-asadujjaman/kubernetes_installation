@@ -8,6 +8,8 @@ Get the detailed information about the installation from the below-mentioned web
 
 ### Set up the Docker and Kubernetes repositories:
 
+> Update the IP address as required or note the current IP address of the machine/VM. We'll use the IP address 10.0.1.19/24 for the Kube master and 10.0.1.20/24, 10.0.1.21/24, ... for the Kube nodes.
+
 > Download the GPG key for docker
 
 ```bash
@@ -93,14 +95,14 @@ sudo sed -i '/\/swap.img/ s/^/#/' /etc/fstab
 
 ### On the Kube master server
 
-> Initialize the cluster by passing the cidr value and the value will depend on the type of network CLI you choose.
+> Initialize the cluster by passing the cidr value and the IP address of the master. These values will depend on the type of network CLI you choose and your IP address configuration.
 
-**Use either Flannel or Calico**
+**Use either Flannel or Calico and replace 10.0.1.19 below with the IP address of the Kube master (if necessary)**
 
 ```bash
 # For flannel network
 # Copy your join command and keep it safe.
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.1.19
 
 # Copy your join command and keep it safe.
 # Below is a sample
@@ -110,7 +112,7 @@ kubeadm join 10.128.0.2:6443 --token swi0ci.jq9l75eg8lvpxz6g --discovery-token-c
 ```bash
 # For Calico network
 # Make sure to copy the join command
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=10.0.1.19
 
 # Copy your join command and keep it safe.
 # Below is a sample
