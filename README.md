@@ -10,6 +10,12 @@ Get the detailed information about the installation from the below-mentioned web
 
 > Update the IP address as required or note the current IP address of the machine/VM. We'll use the IP address 10.0.1.19/24 for the Kube master and 10.0.1.20/24, 10.0.1.21/24, ... for the Kube nodes.
 
+> Update hostname
+
+```bash
+nano /etc/hostname
+```
+
 > Download the GPG key for docker
 
 ```bash
