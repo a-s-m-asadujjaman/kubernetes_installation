@@ -101,7 +101,7 @@ sudo sed -i '/\/swap.img/ s/^/#/' /etc/fstab
 
 ```bash
 # For flannel network
-# Copy your join command and keep it safe.
+# Initialize.
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.1.19
 
 # Copy your join command and keep it safe.
@@ -111,7 +111,7 @@ kubeadm join 10.128.0.2:6443 --token swi0ci.jq9l75eg8lvpxz6g --discovery-token-c
 
 ```bash
 # For Calico network
-# Make sure to copy the join command
+# Initialize.
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=10.0.1.19
 
 # Copy your join command and keep it safe.
